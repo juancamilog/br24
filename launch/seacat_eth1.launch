@@ -1,0 +1,27 @@
+<launch>
+    <node ns="can" name="listener" type="canbus_listener.py" pkg="canbus_interface" respawn="True" output="screen">
+       <param name="can_ifname" type="str" value="can0"/>
+    </node>
+    <node ns="br24" name="radar" type="br24_node.py" pkg="br24" respawn="True" output="screen">
+       <!-- here you should set interface_ip to the IP address of the interface where the radar is connected -->
+       <param name="interface_ip" type="str" value="192.168.7.2"/>
+       <!--should the radar be running? this variable determines if it should -->
+       <param name="radar_on" type="bool" value="true"/>
+       <!-- a value of 0 resets the radar to normal turning speed -->
+       <param name="radar_speed" type="int" value="0"/>
+       <!-- numbers 0 to 15 correspond to 0.05, 0.075, 0.1, 0.25, 0.5, 0.75, 1, 1.5, 2, 3, 4, 6, 8, 12, 16 and 24 kms -->
+       <param name="radar_range" type="int" value="6"/>
+       <!-- 0: off 1: low 2: medium 3: high -->
+       <param name="interference_reject" type="int" value="1"/>
+       <!-- 0: off 1: low 2: high -->
+       <param name="target_boost" type="int" value="1"/>
+       <!-- 0: off 1: low 2: medium 3: high -->
+       <param name="local_interference_filter" type="int" value="1"/>
+       <!-- 0: automatic gain, any other number up to 80 set a gain value -->
+       <param name="gain" type="int" value="0"/>
+       <!-- any value between 1 and 80,  77 is the default manufacturer setting-->
+       <param name="rain_clutter_filter" type="int" value="77"/>
+       <!-- 0: automatic sea clutter filter, any other number up to 80 sets a filter value -->
+       <param name="sea_clutter_filter" type="int" value="0"/>
+    </node>
+</launch>

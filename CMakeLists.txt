@@ -4,7 +4,7 @@ project(br24)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED COMPONENTS roscpp rospy std_msgs message_generation)
+find_package(catkin REQUIRED COMPONENTS roscpp rospy std_msgs message_generation dynamic_reconfigure)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -40,6 +40,9 @@ find_package(catkin REQUIRED COMPONENTS roscpp rospy std_msgs message_generation
    std_msgs
  )
 
+# generate dynamic reconfigure
+generate_dynamic_reconfigure_options(cfg/br24_params.cfg)
+
 ###################################
 ## catkin specific configuration ##
 ###################################
@@ -53,7 +56,7 @@ catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES br24
 #  CATKIN_DEPENDS roscpp rospy std_msgs
-   CATKIN_DEPENDS roscpp rospy std_msgs message_runtime
+   CATKIN_DEPENDS roscpp rospy std_msgs message_runtime dynamic_reconfigure
 #  DEPENDS system_lib
 )
 
