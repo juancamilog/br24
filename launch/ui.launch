@@ -1,0 +1,4 @@
+<launch>
+    <node ns="br24" name="radar_viz" type="br24_visualization_node.py" pkg="br24" output="screen"></node>
+    <node ns="br24" name="dyn_reconfigure" type="rqt_reconfigure" pkg="rqt_reconfigure" output="screen"></node>
+</launch>
