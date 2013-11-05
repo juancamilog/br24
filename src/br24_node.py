@@ -53,7 +53,6 @@ class parameter_handler():
                 br.set_filters_and_preprocessing('sea_clutter_manual', value)
 
 if __name__ == '__main__':
-    rospy.loginfo("Starting radar..")
     rospy.init_node('br24')
 
     # this is to guarantee that the packets leave on the appropriate interface
