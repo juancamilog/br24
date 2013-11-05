@@ -10,8 +10,6 @@ import math
 from dynamic_reconfigure.server import Server as dyn_rec_server
 from br24.cfg import br24_paramsConfig
 
-
-
 class parameter_handler():
     def __init__(self, br):
         self.br = br
