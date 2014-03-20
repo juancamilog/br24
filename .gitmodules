@@ -1,0 +1,3 @@
+[submodule "src/pyOpenBR24"]
+	path = src/pyOpenBR24
+	url = https://github.com/juancamilog/pyOpenBR24
