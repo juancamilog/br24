@@ -30,7 +30,11 @@ class parameter_handler():
             else:
                 br.increase_scan_speed(value)
         elif param == 'radar_range':
-            br.set_radar_range(value)
+            if value < 50:
+                print "GOT HERE!"
+                br.set_radar_range(value)
+            else:
+                br.set_radar_range_mts(value)
         elif param == 'interference_reject':
             br.set_interference_rejection(value)
         elif param == 'target_boost':
